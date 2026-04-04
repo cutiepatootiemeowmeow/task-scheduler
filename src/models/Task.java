@@ -39,6 +39,9 @@ public class Task {
         this.priority = priority;
     }
 
+    /**
+     * Runs task for 1 unit of time
+     */
     public void runTask(){
         if (task != null){
             task.func();
