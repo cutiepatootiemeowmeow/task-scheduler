@@ -12,7 +12,7 @@ public class App {
         int n = scan.nextInt();
         
         // buhat ug tasks user input ni
-        ArrayList<Task> taskList = new ArrayList<>();
+        Task[] taskArray = new Task[n];
         for (int i = 0; i < n; i++) {
             System.out.println("\nTask " + (i + 1) + ":");
             System.out.print("  Arrival Time: ");
@@ -23,14 +23,14 @@ public class App {
             int pri = scan.nextInt();
             
             int taskNum = i + 1;
-            taskList.add(new Task("P" + taskNum, at, bt, pri));
+            taskArray[i] = new Task("P" + taskNum, at, bt, pri);
         }
         
         System.out.print("\nEnter time quantum: ");
         int quantum = scan.nextInt();
         
         // pass data
-        RR rr = new RR(quantum, taskList);
+        RR rr = new RR(quantum, taskArray);
         rr.run();
         
         System.out.println("\n=== Round Robin Scheduling Complete ===");
